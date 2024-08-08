@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:test_project/modules/auth/ber_screen.dart';
+import 'package:test_project/modules/beranda/beranda_screen.dart';
 import 'package:test_project/modules/auth/forget_password_screen.dart';
 import 'package:test_project/modules/auth/register_screen.dart';
 import '../modules/auth/login_screen.dart';
@@ -10,7 +10,7 @@ class Routes {
   static String routeLogin = '/login';
   static String routeForgetPasword = '/forget-password';
   static String routeRegister = '/register';
-  static String routesBerScreen = '/ber_creen';
+  static String routesBerandaScreen = '/beranda_screen';
 }
 
 appRoutes() => [
@@ -42,9 +42,10 @@ appRoutes() => [
         transition: Transition.fade,
       ),
 
+      /// Beranda Screen
       GetPage(
-        name: Routes.routesBerScreen,
-        page: () => BerScreen(),
+        name: Routes.routesBerandaScreen,
+        page: () => BerandaScreen(),
         transition: Transition.fade,
       ),
 

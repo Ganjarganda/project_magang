@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             message:
                             'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController
                                 .text} 🙌🙌');
-                        Get.toNamed(Routes.routesBerScreen);
+                        Get.toNamed(Routes.routesBerandaScreen);
                       },
 
 
