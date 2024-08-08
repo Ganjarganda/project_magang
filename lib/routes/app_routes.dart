@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:test_project/modules/beranda/beranda_screen.dart';
 import 'package:test_project/modules/auth/forget_password_screen.dart';
 import 'package:test_project/modules/auth/register_screen.dart';
-import 'package:test_project/modules/informasi/informasi.dart';
+import 'package:test_project/modules/informasi/informasi_screen.dart';
 import '../modules/auth/login_screen.dart';
 import '../modules/splash/splash_screen.dart';
 
@@ -12,7 +12,7 @@ class Routes {
   static String routeForgetPasword = '/forget-password';
   static String routeRegister = '/register';
   static String routesBerandaScreen = '/beranda_screen';
-  static String routesinformasi = '/informasi';
+  static String routesInformasi = '/informasi';
 }
 
 appRoutes() => [
@@ -53,8 +53,8 @@ appRoutes() => [
   
       /// informasi
       GetPage(
-        name: Routes.routesinformasi,
-        page: () => Informasi(),
+        name: Routes.routesInformasi,
+        page: () => InformasiScreen(),
         transition: Transition.fade,
       ),
   
