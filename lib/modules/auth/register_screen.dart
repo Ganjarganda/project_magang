@@ -19,9 +19,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
   var namaController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var confirmPasswordController = TextEditingController();
+  var confirmPassController = TextEditingController();
 
   final UserController _userController = Get.find();
+
+  void checkNamaLengkap(String value) {
+    if (value.isEmpty) {
+      _userController.validNamaLengkap.value = false;
+    } else {
+      _userController.validNamaLengkap.value = true;
+    }
+  }
+  
+  void checkEmail(String value) {
+    if (value.isEmpty) {
+      _userController.validEmail.value = false;
+    } else {
+      _userController.validEmail.value = true;
+    }
+  }
+
+  void checkPassword(String value) {
+    if (value.isEmpty) {
+      _userController.validPassword.value = false;
+    } else {
+      _userController.validPassword.value = true;
+    }
+  }
+
+   void checkConfirmPass(String value) {
+    if (value.isEmpty) {
+      _userController.validConfimPass.value = false;
+    } else {
+      _userController.validConfimPass.value = true;
+    }
+  }
+
+  void checkSingUp() {
+    checkNamaLengkap(namaController.text);
+    checkEmail(emailController.text);
+    checkPassword(passwordController.text);
+    checkConfirmPass(confirmPassController.text);
+
+    if (_userController.validNamaLengkap.value == true && _userController.validEmail.value == true &&
+        _userController.validPassword.value == true && _userController.validConfimPass.value == true ) {
+      AppUtils().snackbarShow(
+        message:
+            'Assalamualaikum😊😊😊 \nSelamat datang ${namaController.text} 🙌🙌',
+      );
+      Get.toNamed(Routes.routeLogin);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +144,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: Colors.white,
                   ),
                 ),
+                Obx(() {
+                      if (_userController.validNamaLengkap.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'Nama Lengkap Tidak Valid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
 
                 SizedBox(
                   height: setHeight(30),
@@ -112,6 +170,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     color: Colors.white,
                   ),
                 ),
+
+                Obx(() {
+                      if (_userController.validEmail.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'email tidak valid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
 
                 SizedBox(
                   height: setHeight(30),
@@ -145,13 +214,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
 
+                Obx(() {
+                      if (_userController.validPassword.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'password tidak valid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
+
                 SizedBox(
                   height: setHeight(30),
                 ),
 
                 Obx(
                       () => FormInputTexfield(
-                    controller: confirmPasswordController,
+                    controller: confirmPassController,
                     inputType: TextInputType.visiblePassword,
                     secureText: _userController.hidePassword.value,
                     hint: 'Konfirmasi Kata Sandi',
@@ -176,6 +256,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
 
+                Obx(() {
+                      if (_userController.validConfimPass.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'Konfirmasi Password Tidak Falid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
+
                 SizedBox(
                   height: setHeight(30),
                 ),
@@ -188,10 +279,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 FormInputButton(
                   text: 'Sign Up',
                   onClick: () {
-                    AppUtils().snackbarShow(
-                      message:
-                      'Email : ${emailController.text} , Pass : ${passwordController.text}',
-                    );
+                    checkSingUp();
                   },
                 ),
 
