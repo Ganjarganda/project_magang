@@ -27,6 +27,8 @@ class _InformasiState extends State<Informasi> {
               style: TextStyle(fontSize: 16.0), //hhh
             ),
             SizedBox(height: 4.0),
+
+            ///kkk
             Text(
               'Maka ridholah dengan ketetapan Allah dan tersenyumlah.',
               style: TextStyle(fontSize: 16.0),
