@@ -51,7 +51,7 @@ appRoutes() => [
         transition: Transition.fade,
       ),
 
-      ///informasi
+      /// informasi
       GetPage(
         name: Routes.routesinformasi,
         page: () => Informasi(),
