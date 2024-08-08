@@ -190,7 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     /// informasi
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(Routes.routesinformasi);
+                        Get.toNamed(Routes.routesInformasi);
                       },
                       child: Center(
                         child: RichText(
