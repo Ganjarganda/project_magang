@@ -136,10 +136,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
                     ),
 
-                    SizedBox(
-                      height: setHeight(50),
-                    ),
-
+                   
                   ],
                 ),
               ),
