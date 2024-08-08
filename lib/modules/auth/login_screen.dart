@@ -17,13 +17,40 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  var usernameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
-  var informasiController = TextEditingController();
 
   final UserController _userController = Get.find();
 
+  void checkEmail(String value) {
+    if (value.isEmpty) {
+      _userController.validEmail.value = false;
+    } else {
+      _userController.validEmail.value = true;
+    }
+  }
+
+  void checkPassword(String value) {
+    if (value.isEmpty) {
+      _userController.validPassword.value = false;
+    } else {
+      _userController.validPassword.value = true;
+    }
+  }
+
+  void checkLogin() {
+    checkEmail(emailController.text);
+    checkPassword(passwordController.text);
+
+    if (_userController.validEmail.value == true &&
+        _userController.validPassword.value == true) {
+      AppUtils().snackbarShow(
+        message:
+            'Assalamualaikum😊😊😊 \nSelamat datang ${emailController.text} 🙌🙌',
+      );
+      Get.toNamed(Routes.routesBerandaScreen);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,17 +99,28 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: setHeight(50),
                     ),
 
-                    /// email or username
+                    /// email
                     FormInputTexfield(
-                      controller: usernameController,
+                      controller: emailController,
                       inputType: TextInputType.text,
                       secureText: false,
-                      hint: 'Email or Username',
+                      hint: 'Email',
                       prefixIcon: const Icon(
                         Icons.account_circle_outlined,
                         color: Colors.white,
                       ),
                     ),
+
+                    Obx(() {
+                      if (_userController.validEmail.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'email tidak valid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
 
                     SizedBox(
                       height: setHeight(30),
@@ -116,6 +154,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
 
+                    Obx(() {
+                      if (_userController.validPassword.value == true) {
+                        return const SizedBox();
+                      } else {
+                        return Text(
+                          'password tidak valid',
+                          style: styleSubtitle.copyWith(color: Colors.white),
+                        );
+                      }
+                    }),
+
                     SizedBox(
                       height: setHeight(30),
                     ),
@@ -144,10 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     FormInputButton(
                       text: 'Sign In',
                       onClick: () {
-                        AppUtils().snackbarShow(
-                            message:
-                                'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController.text} 🙌🙌');
-                        Get.toNamed(Routes.routesBerandaScreen);
+                        checkLogin();
                       },
                     ),
 
