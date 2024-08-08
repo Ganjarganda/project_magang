@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:test_project/controller/user/user_controller.dart';
 import 'package:test_project/gen/assets.gen.dart';
 import 'package:test_project/routes/app_routes.dart';
