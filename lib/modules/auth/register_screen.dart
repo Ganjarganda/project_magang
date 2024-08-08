@@ -177,6 +177,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
+
+                    SizedBox(
+                      height: setHeight(50),
+                    ),
+
+                    ///button informasi
                   ],
                 ),
               ),
