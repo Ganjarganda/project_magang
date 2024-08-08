@@ -18,10 +18,12 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var usernameController = TextEditingController();
+  var emailController = TextEditingController();
   var passwordController = TextEditingController();
   var informasiController = TextEditingController();
 
   final UserController _userController = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
