@@ -18,6 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   var usernameController = TextEditingController();
+  var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
   final UserController _userController = Get.find();
@@ -143,12 +144,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       onClick: () {
                         AppUtils().snackbarShow(
                             message:
-                            'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController
-                                .text} 🙌🙌');
+                                'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController.text} 🙌🙌');
                         Get.toNamed(Routes.routesBerandaScreen);
                       },
-
-
                     ),
 
                     SizedBox(

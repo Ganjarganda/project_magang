@@ -17,6 +17,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   var usernameController = TextEditingController();
+  var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
   final UserController _userController = Get.find();
@@ -72,9 +73,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       controller: usernameController,
                       inputType: TextInputType.text,
                       secureText: false,
-                      hint: 'Nama',
+                      hint: 'Nama Lengkap',
                       prefixIcon: const Icon(
                         Icons.account_circle_outlined,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: setHeight(50),
+                    ),
+
+                    /// email or username
+                    FormInputTexfield(
+                      controller: emailController,
+                      inputType: TextInputType.text,
+                      secureText: false,
+                      hint: 'Email',
+                      prefixIcon: const Icon(
+                        Icons.mail,
                         color: Colors.white,
                       ),
                     ),
@@ -89,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         controller: passwordController,
                         inputType: TextInputType.visiblePassword,
                         secureText: _userController.hidePassword.value,
-                        hint: 'Password',
+                        hint: 'Kata Sandi',
                         prefixIcon: const Icon(
                           Icons.password,
                           color: Colors.white,
@@ -115,20 +132,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       height: setHeight(30),
                     ),
 
-                    /// forget password
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.toNamed(Routes.routeForgetPasword);
-                        },
-                        child: Text(
-                          'Forget Password',
-                          style: styleTitle.copyWith(
+                    Obx(
+                      () => FormInputTexfield(
+                        controller: passwordController,
+                        inputType: TextInputType.visiblePassword,
+                        secureText: _userController.hidePassword.value,
+                        hint: 'Konfirmasi Kata Sandi',
+                        prefixIcon: const Icon(
+                          Icons.password,
+                          color: Colors.white,
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            _userController.hidePassword.value =
+                                !_userController.hidePassword.value;
+                          },
+                          icon: Icon(
+                            _userController.hidePassword.value == true
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                             color: Colors.white,
                           ),
+                          splashColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
                         ),
                       ),
+                    ),
+
+                    SizedBox(
+                      height: setHeight(30),
                     ),
 
                     SizedBox(
@@ -137,7 +169,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                     /// button sign in
                     FormInputButton(
-                      text: 'Sign In',
+                      text: 'Sign Up',
                       onClick: () {
                         AppUtils().snackbarShow(
                           message:
@@ -153,7 +185,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     /// button daftar
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed(Routes.routeRegister);
+                        Get.toNamed(
+                          Routes.routeLogin,
+                        );
                       },
                       child: Center(
                         child: RichText(
@@ -161,13 +195,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           text: TextSpan(
                             children: [
                               TextSpan(
-                                  text: 'Belum punya akun?',
+                                  text: 'Sudah punya akun?',
                                   style: styleSubtitle.copyWith(
                                     fontSize: setFontSize(32),
                                     color: Colors.white,
                                   )),
                               TextSpan(
-                                  text: ' Daftar',
+                                  text: ' Login!',
                                   style: styleTitle.copyWith(
                                       fontSize: setFontSize(32),
                                       color: Colors.lightGreen,

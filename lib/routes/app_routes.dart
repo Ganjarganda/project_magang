@@ -25,7 +25,7 @@ appRoutes() => [
       GetPage(
         name: Routes.routeLogin,
         page: () => const LoginScreen(),
-        transition: Transition.fade,
+        transition: Transition.fadeIn,
       ),
 
       /// forget password
@@ -46,7 +46,6 @@ appRoutes() => [
       GetPage(
         name: Routes.routesBerandaScreen,
         page: () => BerandaScreen(),
-        transition: Transition.fade,
+        transition: Transition.rightToLeftWithFade,
       ),
-
     ];
