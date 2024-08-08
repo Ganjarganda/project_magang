@@ -128,8 +128,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       onClick: () {
                         AppUtils().snackbarShow(
                             message:
-                            'Assalamualaikum😊😊😊 \nSelamat datang ${emailController
-                                .text} 🙌🙌');
+                            'Password anda telah terubah \nSilahkan Lakukan Login ${emailController
+                                .text}');
                         Get.toNamed(Routes.routeLogin);
                       },
 
