@@ -24,7 +24,7 @@ class _InformasiState extends State<Informasi> {
             SizedBox(height: 4.0), // Jarak antar baris teks
             Text(
               'Bisa jadi karena Allah tahu engkau tidak siap untuk menerimanya, atau karena engkau tak mampu menerimanya sekarang, atau ada hal yang lebih baik yang sedang menantimu didepan sana.',
-              style: TextStyle(fontSize: 16.0),
+              style: TextStyle(fontSize: 16.0), //hhh
             ),
             SizedBox(height: 4.0),
             Text(
