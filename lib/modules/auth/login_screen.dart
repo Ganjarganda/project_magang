@@ -20,6 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
   var usernameController = TextEditingController();
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
+  var informasiController = TextEditingController();
 
   final UserController _userController = Get.find();
 
@@ -172,6 +173,38 @@ class _LoginScreenState extends State<LoginScreen> {
                                   )),
                               TextSpan(
                                   text: ' Daftar',
+                                  style: styleTitle.copyWith(
+                                      fontSize: setFontSize(32),
+                                      color: Colors.lightGreen,
+                                      fontWeight: FontWeight.bold)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(
+                      height: setHeight(50),
+                    ),
+
+                    /// informasi
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Routes.routesinformasi);
+                      },
+                      child: Center(
+                        child: RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: 'informasi lebih lanjut?',
+                                  style: styleSubtitle.copyWith(
+                                    fontSize: setFontSize(32),
+                                    color: Colors.white,
+                                  )),
+                              TextSpan(
+                                  text: ' tekan di sini',
                                   style: styleTitle.copyWith(
                                       fontSize: setFontSize(32),
                                       color: Colors.lightGreen,
