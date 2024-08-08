@@ -142,10 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       text: 'Sign In',
                       onClick: () {
                         AppUtils().snackbarShow(
-                          message:
-                              'Email : ${usernameController.text} , Pass : ${passwordController.text}',
-                        );
+                            message:
+                            'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController
+                                .text} 🙌🙌');
+                        Get.toNamed(Routes.routesBerScreen);
                       },
+
+
                     ),
 
                     SizedBox(
