@@ -41,13 +41,11 @@ appRoutes() => [
         page: () => const RegisterScreen(),
         transition: Transition.fade,
       ),
-<<<<<<< Updated upstream
+
       GetPage(
         name: Routes.routesBerScreen,
         page: () => BerScreen(),
         transition: Transition.fade,
       ),
-=======
-  
->>>>>>> Stashed changes
+
     ];
