@@ -3,12 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:test_project/utils/constant.dart';
 
 import 'controller/app_controller_binding.dart';
 import 'routes/app_routes.dart';
+import 'services/storage/event_storage/event_storage.dart';
 
 void main() async {
+  await GetStorage.init(EventStorage.names_box);
   WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])

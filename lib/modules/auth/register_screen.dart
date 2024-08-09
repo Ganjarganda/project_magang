@@ -51,7 +51,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     if (value.isEmpty) {
       _userController.validConfimPass.value = false;
     } else {
-      _userController.validConfimPass.value = true;
+      if(value == passwordController.text) {
+        _userController.validConfimPass.value = true;
+      } else {
+        _userController.validConfimPass.value = false;
+      }
     }
   }
 
@@ -67,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         message:
             'Assalamualaikum😊😊😊 \nSelamat datang ${namaController.text} 🙌🙌',
       );
-      Get.toNamed(Routes.routeLogin);
+      Get.back();
     }
   }
 
