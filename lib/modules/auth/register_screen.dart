@@ -71,8 +71,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
         _userController.validConfimPass.value == true) {
       _userController.register(
         nama: namaController.text,
-        email: '',
-        password: '',
+        email: emailController.text,
+        password: passwordController.text,
       );
     }
   }

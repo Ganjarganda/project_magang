@@ -1,5 +1,5 @@
 class Api {
-  static String BaseUrl = 'http://192.168.1.5/project_magang_api';
+  static String BaseUrl = 'http://192.168.1.31/project_magang_api';
 
   // url api
   String url_login = '$BaseUrl/login.php';

@@ -72,14 +72,12 @@ class UserController extends GetxController {
       );
 
       var rspBody = jsonDecode(response.body);
+
       if (rspBody['status'] == 1) {
         AppUtils().snackbarShow(message: rspBody['message']);
-
-        Get.back();
       } else {
         AppUtils().snackbarShow(message: rspBody['message']);
       }
-
       EasyLoading.dismiss();
     } catch (e) {
       EasyLoading.dismiss();
