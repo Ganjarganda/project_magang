@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:test_project/controller/user/user_controller.dart';
 import 'package:test_project/gen/assets.gen.dart';
 import 'package:test_project/routes/app_routes.dart';
-import 'package:test_project/utils/app_utils.dart';
 import 'package:test_project/widgets/button/form_input_button.dart';
 import 'package:test_project/widgets/textfields/form_input_textfield.dart';
 
@@ -175,16 +174,25 @@ class _LoginScreenState extends State<LoginScreen> {
                         TextButton(
                           onPressed: () {
                             Get.toNamed(Routes.routeLiveChat);
-                            // Logika untuk "Hubungi Kami"
                           },
-                          child: Text("Hubungi Kami"),
+                          child: Text(
+                            "Hubungi Kami",
+                            style: styleTitle.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                         TextButton(
                           onPressed: () {
                             Get.toNamed(Routes.routeLiveChat);
                             // Logika untuk "Forget Password"
                           },
-                          child: Text("Forget Password"),
+                          child: Text(
+                            "Forget Password",
+                            style: styleTitle.copyWith(
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -197,14 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     FormInputButton(
                       text: 'Sign In',
                       onClick: () {
-<<<<<<< Updated upstream
                         checkLogin();
-=======
-                        AppUtils().snackbarShow(
-                            message:
-                                'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController.text} 🙌🙌');
-                        Get.toNamed(Routes.routesBerandaScreen);
->>>>>>> Stashed changes
                       },
                     ),
 
