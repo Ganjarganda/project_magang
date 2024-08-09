@@ -168,20 +168,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: setHeight(30),
                     ),
 
-                    /// forget password
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.toNamed(Routes.routeForgetPasword);
-                        },
-                        child: Text(
-                          'Forget Password',
-                          style: styleTitle.copyWith(
-                            color: Colors.white,
-                          ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment
+                          .spaceBetween, // Pisahkan elemen ke kiri dan kanan
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Get.toNamed(Routes.routeLiveChat);
+                            // Logika untuk "Hubungi Kami"
+                          },
+                          child: Text("Hubungi Kami"),
                         ),
-                      ),
+                        TextButton(
+                          onPressed: () {
+                            Get.toNamed(Routes.routeLiveChat);
+                            // Logika untuk "Forget Password"
+                          },
+                          child: Text("Forget Password"),
+                        ),
+                      ],
                     ),
 
                     SizedBox(
@@ -192,7 +197,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     FormInputButton(
                       text: 'Sign In',
                       onClick: () {
+<<<<<<< Updated upstream
                         checkLogin();
+=======
+                        AppUtils().snackbarShow(
+                            message:
+                                'Assalamualaikum😊😊😊 \nSelamat datang ${usernameController.text} 🙌🙌');
+                        Get.toNamed(Routes.routesBerandaScreen);
+>>>>>>> Stashed changes
                       },
                     ),
 
