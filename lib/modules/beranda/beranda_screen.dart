@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_project/services/storage/event_storage/event_storage.dart';
+import 'package:test_project/services/storage/user/event_user.dart';
+
+import '../../routes/app_routes.dart';
 
 class BerandaScreen extends StatelessWidget {
   const BerandaScreen({super.key});
@@ -16,9 +21,10 @@ class BerandaScreen extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.logout),
             onPressed: () {
-              // Aksi ketika ikon notifikasi ditekan
+              EventStorage.removeStorage();
+              Get.toNamed(Routes.routeLogin);
             },
           ),
         ],

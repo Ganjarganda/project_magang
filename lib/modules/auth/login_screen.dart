@@ -44,11 +44,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (_userController.validEmail.value == true &&
         _userController.validPassword.value == true) {
-      AppUtils().snackbarShow(
-        message:
-            'Assalamualaikum😊😊😊 \nSelamat datang ${emailController.text} 🙌🙌',
+      _userController.login(
+        email: emailController.text,
+        password: passwordController.text,
       );
-      Get.toNamed(Routes.routesBerandaScreen);
     }
   }
 
