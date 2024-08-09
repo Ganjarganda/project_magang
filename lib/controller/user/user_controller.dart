@@ -53,4 +53,37 @@ class UserController extends GetxController {
       AppUtils().snackbarShow(message: e.toString());
     }
   }
+
+  /// api login
+  void register({
+    required String nama,
+    required String email,
+    required String password,
+  }) async {
+    EasyLoading.show(status: 'loading');
+    try {
+      var response = await https.post(
+        Uri.parse(Api().url_register),
+        body: jsonEncode({
+          'nama': nama,
+          'email': email,
+          'password': password,
+        }),
+      );
+
+      var rspBody = jsonDecode(response.body);
+      if (rspBody['status'] == 1) {
+        AppUtils().snackbarShow(message: rspBody['message']);
+
+        Get.back();
+      } else {
+        AppUtils().snackbarShow(message: rspBody['message']);
+      }
+
+      EasyLoading.dismiss();
+    } catch (e) {
+      EasyLoading.dismiss();
+      AppUtils().snackbarShow(message: e.toString());
+    }
+  }
 }
