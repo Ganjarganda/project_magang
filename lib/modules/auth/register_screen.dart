@@ -30,7 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _userController.validNamaLengkap.value = true;
     }
   }
-  
+
   void checkEmail(String value) {
     if (value.isEmpty) {
       _userController.validEmail.value = false;
@@ -47,11 +47,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
-   void checkConfirmPass(String value) {
+  void checkConfirmPass(String value) {
     if (value.isEmpty) {
       _userController.validConfimPass.value = false;
     } else {
-      if(value == passwordController.text) {
+      if (value == passwordController.text) {
         _userController.validConfimPass.value = true;
       } else {
         _userController.validConfimPass.value = false;
@@ -65,13 +65,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
     checkPassword(passwordController.text);
     checkConfirmPass(confirmPassController.text);
 
-    if (_userController.validNamaLengkap.value == true && _userController.validEmail.value == true &&
-        _userController.validPassword.value == true && _userController.validConfimPass.value == true ) {
-      AppUtils().snackbarShow(
-        message:
-            'Assalamualaikum😊😊😊 \nSelamat datang ${namaController.text} 🙌🙌',
+    if (_userController.validNamaLengkap.value == true &&
+        _userController.validEmail.value == true &&
+        _userController.validPassword.value == true &&
+        _userController.validConfimPass.value == true) {
+      _userController.register(
+        nama: namaController.text,
+        email: '',
+        password: '',
       );
-      Get.back();
     }
   }
 
@@ -108,7 +110,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child:  SingleChildScrollView(
+        child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Container(
             color: Colors.transparent,
@@ -149,15 +151,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ),
                 Obx(() {
-                      if (_userController.validNamaLengkap.value == true) {
-                        return const SizedBox();
-                      } else {
-                        return Text(
-                          'Nama Lengkap Tidak Valid',
-                          style: styleSubtitle.copyWith(color: Colors.white),
-                        );
-                      }
-                    }),
+                  if (_userController.validNamaLengkap.value == true) {
+                    return const SizedBox();
+                  } else {
+                    return Text(
+                      'Nama Lengkap Tidak Valid',
+                      style: styleSubtitle.copyWith(color: Colors.white),
+                    );
+                  }
+                }),
 
                 SizedBox(
                   height: setHeight(30),
@@ -176,15 +178,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
 
                 Obx(() {
-                      if (_userController.validEmail.value == true) {
-                        return const SizedBox();
-                      } else {
-                        return Text(
-                          'email tidak valid',
-                          style: styleSubtitle.copyWith(color: Colors.white),
-                        );
-                      }
-                    }),
+                  if (_userController.validEmail.value == true) {
+                    return const SizedBox();
+                  } else {
+                    return Text(
+                      'email tidak valid',
+                      style: styleSubtitle.copyWith(color: Colors.white),
+                    );
+                  }
+                }),
 
                 SizedBox(
                   height: setHeight(30),
@@ -192,7 +194,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 /// password
                 Obx(
-                      () => FormInputTexfield(
+                  () => FormInputTexfield(
                     controller: passwordController,
                     inputType: TextInputType.visiblePassword,
                     secureText: _userController.hidePassword.value,
@@ -204,7 +206,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     suffixIcon: IconButton(
                       onPressed: () {
                         _userController.hidePassword.value =
-                        !_userController.hidePassword.value;
+                            !_userController.hidePassword.value;
                       },
                       icon: Icon(
                         _userController.hidePassword.value == true
@@ -219,22 +221,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
 
                 Obx(() {
-                      if (_userController.validPassword.value == true) {
-                        return const SizedBox();
-                      } else {
-                        return Text(
-                          'password tidak valid',
-                          style: styleSubtitle.copyWith(color: Colors.white),
-                        );
-                      }
-                    }),
+                  if (_userController.validPassword.value == true) {
+                    return const SizedBox();
+                  } else {
+                    return Text(
+                      'password tidak valid',
+                      style: styleSubtitle.copyWith(color: Colors.white),
+                    );
+                  }
+                }),
 
                 SizedBox(
                   height: setHeight(30),
                 ),
 
                 Obx(
-                      () => FormInputTexfield(
+                  () => FormInputTexfield(
                     controller: confirmPassController,
                     inputType: TextInputType.visiblePassword,
                     secureText: _userController.hidePassword.value,
@@ -246,7 +248,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     suffixIcon: IconButton(
                       onPressed: () {
                         _userController.hidePassword.value =
-                        !_userController.hidePassword.value;
+                            !_userController.hidePassword.value;
                       },
                       icon: Icon(
                         _userController.hidePassword.value == true
@@ -261,15 +263,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
 
                 Obx(() {
-                      if (_userController.validConfimPass.value == true) {
-                        return const SizedBox();
-                      } else {
-                        return Text(
-                          'Konfirmasi Password Tidak Falid',
-                          style: styleSubtitle.copyWith(color: Colors.white),
-                        );
-                      }
-                    }),
+                  if (_userController.validConfimPass.value == true) {
+                    return const SizedBox();
+                  } else {
+                    return Text(
+                      'Konfirmasi Password Tidak Falid',
+                      style: styleSubtitle.copyWith(color: Colors.white),
+                    );
+                  }
+                }),
 
                 SizedBox(
                   height: setHeight(30),
